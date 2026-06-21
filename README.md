@@ -54,7 +54,7 @@ A collection of regression-based machine learning projects implemented using Pyt
 ![Homepage](images/flask_fwi_prediction_homepage.png)
 
 ### Prediction Result
-![Prediction Result](images/flask_fwi_prediction_result.png)
+![Prediction Result](images/flask_fwi_prediction_app.png)
 
 ## Developer
 
