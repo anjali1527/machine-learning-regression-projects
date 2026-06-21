@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>FWI Prediction System</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 30px;
+        }
+
+        .container {
+            background: white;
+            padding: 35px;
+            width: 500px;
+            border-radius: 15px;
+            box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            text-align: center;
+            color: #1e3c72;
+            margin-bottom: 15px;
+        }
+
+        p {
+            text-align: center;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background: #1e3c72;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 12px;
+        }
+
+        button:hover {
+            background: #2a5298;
+        }
+
+        .result {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 22px;
+            font-weight: bold;
+            color: green;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>🔥 Forest Fire Weather Index Prediction</h1>
+
+        <p>Enter the environmental parameters below</p>
+
+        <form action="{{ url_for('predict_datapoint') }}" method="post">
+
+            <input type="number" name="Temperature" placeholder="Temperature (22-42°C)" min="22" max="42" required>
+
+            <input type="number" name="RH" placeholder="RH (21-90%)" min="21" max="90" required>
+
+            <input type="number" name="Ws" placeholder="Wind Speed (6-29 km/h)" min="6" max="29" required>
+
+            <input type="number" name="Rain" placeholder="Rain (0-16.8 mm)" min="0" max="16.8" step="0.1" required>
+
+            <input type="number" name="FFMC" placeholder="FFMC (28.6-92.5)" min="28.6" max="92.5" step="0.1" required>
+
+            <input type="number" name="DMC" placeholder="DMC (1.1-65.9)" min="1.1" max="65.9" step="0.1" required>
+
+            <input type="number" name="ISI" placeholder="ISI (0-18.5)" min="0" max="18.5" step="0.1" required>
+
+            <select name="Classes" required>
+                <option value="">Select Class</option>
+                <option value="0">Not Fire (0)</option>
+                <option value="1">Fire (1)</option>
+            </select>
+
+            <select name="Region" required>
+                <option value="">Select Region</option>
+                <option value="0">Bejaia Region</option>
+                <option value="1">Sidi-Bel Abbes Region</option>
+            </select>
+
+            <button type="submit">Predict FWI</button>
+        </form>
+
+        <div class="result">
+            {% if result %}
+            🔥 Predicted FWI: {{ result }}
+            {% endif %}
+        </div>
+
+    </div>
+
+</body>
+
+</html>
