@@ -4,8 +4,8 @@ import numpy as np
 import pandas as pd
 from sklearn.preprocessing import StandardScaler
 
-ridge_model=pickle.load(open('elasticnet regression/ridge.pkl','rb'))
-standard_scaler=pickle.load(open('elasticnet regression/scaler.pkl','rb'))
+ridge_model=pickle.load(open('elasticnet-regression/ridge.pkl','rb'))
+standard_scaler=pickle.load(open('elasticnet-regression/scaler.pkl','rb'))
 application=Flask(__name__)
 app=application
 

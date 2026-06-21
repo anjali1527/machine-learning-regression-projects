@@ -48,6 +48,14 @@ A collection of regression-based machine learning projects implemented using Pyt
 - Flask
 - Jupyter Notebook
 
+## Application Preview
+
+### Home Page
+![Homepage](images/flask_fwi_prediction_homepage.png)
+
+### Prediction Result
+![Prediction Result](images/flask_fwi_prediction_result.png)
+
 ## Developer
 
 Anjali Sharma
